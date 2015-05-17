@@ -30,6 +30,11 @@ public:
     virtual OSStatus Render(AudioUnitRenderActionFlags &ioActionFlags,
                             const AudioTimeStamp &inTimeStamp,
                             UInt32 inNumberFrames);
+    
+    virtual OSStatus MIDIEvent(UInt32 inStatus,
+                               UInt32 inData1,
+                               UInt32 inData2,
+                               UInt32 inOffsetSampleFrame);
 };
 
 
@@ -59,9 +64,9 @@ OSStatus AudioUnitSynth::Initialize() {
 
 
 OSStatus AudioUnitSynth::GetProperty(AudioUnitPropertyID inID,
-                               AudioUnitScope      inScope,
-                               AudioUnitElement    inElement,
-                               void *              outData) {
+                                     AudioUnitScope      inScope,
+                                     AudioUnitElement    inElement,
+                                     void *              outData) {
     
     if (inScope == kAudioUnitScope_Global) {
         
@@ -94,10 +99,10 @@ OSStatus AudioUnitSynth::GetProperty(AudioUnitPropertyID inID,
 }
 
 OSStatus AudioUnitSynth::GetPropertyInfo(AudioUnitPropertyID inID,
-                                   AudioUnitScope      inScope,
-                                   AudioUnitElement    inElement,
-                                   UInt32 &            outDataSize,
-                                   Boolean &           outWritable) {
+                                         AudioUnitScope      inScope,
+                                         AudioUnitElement    inElement,
+                                         UInt32 &            outDataSize,
+                                         Boolean &           outWritable) {
     
     if (inScope == kAudioUnitScope_Global) {
         
@@ -116,8 +121,8 @@ OSStatus AudioUnitSynth::GetPropertyInfo(AudioUnitPropertyID inID,
 }
 
 OSStatus AudioUnitSynth::Render(AudioUnitRenderActionFlags &ioActionFlags,
-                          const AudioTimeStamp &inTimeStamp,
-                          UInt32 inNumberFrames)
+                                const AudioTimeStamp &inTimeStamp,
+                                UInt32 inNumberFrames)
 {
     
     AUScope &outputs = Outputs();
@@ -141,4 +146,13 @@ OSStatus AudioUnitSynth::Render(AudioUnitRenderActionFlags &ioActionFlags,
     
     mAbsoluteSampleFrame += inNumberFrames;
     return noErr;
+}
+
+OSStatus AudioUnitSynth::MIDIEvent(UInt32 inStatus,
+                                   UInt32 inData1,
+                                   UInt32 inData2,
+                                   UInt32 inOffsetSampleFrame)
+
+{
+    return AUMIDIBase::MIDIEvent (inStatus, inData1, inData2, inOffsetSampleFrame);
 }

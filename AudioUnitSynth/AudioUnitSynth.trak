@@ -270,9 +270,9 @@
 		<key>View Settings</key>
 		<dict>
 			<key>Active Tab Identifier</key>
-			<string>patches</string>
+			<string>studio</string>
 			<key>Doc Drawer Open</key>
-			<false/>
+			<true/>
 			<key>Filter flags</key>
 			<integer>1</integer>
 		</dict>
@@ -282,31 +282,6 @@
 		<string>{2560, 1622}</string>
 		<key>Window Min</key>
 		<string>{360, 540}</string>
-		<key>kAUInspectorListKey</key>
-		<array>
-			<dict>
-				<key>kAUInspectorStateKey_BusIndex</key>
-				<integer>0</integer>
-				<key>kAUInspectorStateKey_BusType</key>
-				<string>kBusType_Input</string>
-				<key>kAUInspectorStateKey_Bypassed</key>
-				<false/>
-				<key>kAUInspectorStateKey_CurrentViewName</key>
-				<string>AudioUnit Synth</string>
-				<key>kAUInspectorStateKey_EffectIndex</key>
-				<integer>-1</integer>
-				<key>kAUInspectorStateKey_PresetDrawerExpandedItems</key>
-				<array/>
-				<key>kAUInspectorStateKey_PresetDrawerShowing</key>
-				<false/>
-				<key>kAUInspectorStateKey_TrackIndex</key>
-				<integer>0</integer>
-				<key>kAUInspectorStateKey_WindowLevel</key>
-				<integer>9223372036854775807</integer>
-				<key>kAUInspectorStateKey_WindowRect</key>
-				<string>{{348, 363}, {480, 314}}</string>
-			</dict>
-		</array>
 	</dict>
 </dict>
 </plist>
